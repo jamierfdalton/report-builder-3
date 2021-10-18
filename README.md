@@ -10,7 +10,7 @@
 ## Introduction<a name="Introduction"></a>
 This project is a demo of an app I built to help my marketing consultancy streamline reporting of their LinkedIn Organic, LinkedIn Sponsored and Google Ads advertising campaigns. It is, in roughly equal parts; a useful tool, a demo of my skills and a platform I used to explore technologies such as Docker, Docker Compose and matplotlib with which I had limited experience. For this reason there are places in which the project could be approached more simply but would have provided fewer learning experiences. 
 
-As this is a tool that was also built to provide proprietary reports for clients of an active marketing agency, all the references to that agency and their clients have been stripped out along with connection details to the Linkedin and Google Ads advertising APIs. For this reason, if you wish to get this working in your own right, you will need access to both these APIs (details in the [dependencies](#dependencies) section) and some deliberately ommited config files. Please feel free to reach out to me if you would like to get this working for yourself and I will do my best to help you.
+As this is a tool that was also built to provide proprietary reports for clients of an active marketing agency, all the references to that agency and their clients have been stripped out along with connection details to the Linkedin and Google Ads advertising APIs. For this reason, if you wish to get this working in your own right, you will need access to both these APIs (details in the [dependencies](#dependencies) section) and some deliberately omited config files. Please feel free to reach out to me if you would like to get this working for yourself and I will do my best to help you.
 
 
 ## Dependencies and Technology<a name="dependencies"></a>
@@ -32,6 +32,7 @@ As this is a tool that was also built to provide proprietary reports for clients
 * [grpcio 1.38.1](https://pypi.org/project/grpcio/1.38.1)
 
 ## Video Demo of the Report Builder in Action<a name="viddemo"></a>
+[LINK TO THE VIDEO](link)
 
 ## How it works <a name="howitworks"></a>
 The main docker-compose.yaml file spins up 4 Docker containers and a shared volume for managing the 4 major aspects of the app; the frontend, the calls to the api, the database itself and a config server. 
@@ -40,7 +41,7 @@ The main docker-compose.yaml file spins up 4 Docker containers and a shared volu
 The frontend container is a Flask server that serves a dynamic output webpage with advertising stats that come from the database, allows the users (typically an account manager for a marketing agency or consultancy) to upload images and enter their own text input and finally export all this to a PDF that can be delivered to the client. 
 
 #### API-Call
-The API-call container queries the LinkedIn Advertiser API and the Google Ads API for a selection of commonly used stats for evaluating the performance of online marketing campaigns at midnight every night (thanks to CRONJOBS.) This container then submits this data is then saved to the MySQL database in the Database container.
+The API-call container queries the LinkedIn Advertiser API and the Google Ads API for a selection of commonly used stats for evaluating the performance of online marketing campaigns at midnight every night (thanks to CRONJOBS.) This data is then saved to the MySQL database in the Database container.
 
 #### Database
 This container creates and maintains the MySQL database that contains all the data obtained from the LinkedIn and Google Ads APIs.
