@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/css/styles.css">
+		<title>{{pagetitle}}</title>
+
+	</head>
+
+  <body>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form class="login" action="" method="post">
+      <input type="text" name="username" value="username">
+      <input type="password" name="password" value="password">
+      <input type="submit">
+    </form>
+
+  </body>
+</html>

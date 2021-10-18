@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  config:
+    build: ./config
+    networks:
+      - jnet
+    volumes:
+      - data-volume:/code/encrypted_files
+  api-call:
+    build: ./api-call
+    networks:
+      - jnet
+    depends_on:
+      - database
+      - config
+    volumes:
+      - data-volume:/code/encrypted_files
+  frontend:
+    build: ./frontend
+    networks:
+      - jnet
+      - outside
+    ports:
+      - "80:80"
+      - "2555:2555"
+    restart: on-failure
+    depends_on:
+      - database
+      - config
+    volumes:
+      - data-volume:/code/encrypted_files
+  database:
+    build: ./database
+    restart: on-failure
+    networks:
+      - jnet
+
+networks:
+  jnet:
+    name: jnet
+    driver: bridge
+  outside:
+    name: outside
+    driver: bridge
+
+volumes:
+  data-volume:

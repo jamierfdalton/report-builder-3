@@ -1,0 +1,489 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/css/styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="./static/js/scripts.js"></script>
+		<script src="./static/js/html2pdf.bundle.min.js"></script>
+		<title>{{pagetitle}}</title>
+
+	</head>
+	<body >
+		<div id="presentation">
+		<div class="slide">
+				<div class="title">{{title1}}</div>
+				<div class="top-table-row">
+					<div class="top-table-cell header"><p>Date</p></div>
+					<div class="top-table-cell header"><p>Impressions</p></div>
+					<div class="top-table-cell header"><p>Comments</p></div>
+					<div class="top-table-cell header"><p>Reactions (likes etc.)</p></div>
+					<div class="top-table-cell header"><p>Clicks</p></div>
+					<div class="top-table-cell header"><p>CTR</p></div>
+					<div class="top-table-cell header"><p>Shares</p></div>
+					<div class="top-table-cell header"><p>Total Posts</p></div>
+					<div class="top-table-cell header"><p>Avg. Impressions per Post</p></div>
+					<div class="top-table-cell header"><p>Avg. Shares per Post</p></div>
+				</div>
+				<div class="top-table-row">
+					{% for x in range(10) %}
+						<div class="top-table-cell">{{organic1[x]}}</div>
+					{% endfor %}
+				</div>
+				<div class="top-table-row">
+					{% for x in range(10) %}
+						<div class="top-table-cell">{{organic2[x]}}</div>
+					{% endfor %}
+				</div>
+				<div class="container">
+					<div class="sidebar">
+						<div class="assets">
+							<h3>Assets</h3>
+							<ul>
+									<li>{{organic1[7]}} posts in the whole campaign</li>
+							</ul>
+						</div>
+						<div class="Last30DaysOfActivity">
+							<h4>Last 30 Days of Activity</h4>
+							<ul>
+								<li><div id="user-input-notes-visitors"></div>
+									<form id="notes-visitors">
+	                	<input type="text" id="visitor1" name="userVisitorNotes" ></input>
+	                  <input type="submit" value="submit"></input>
+									</form>
+								</li>
+								<li>
+									<div id="user-input-notes-followers"></div>
+									<form id="notes-followers">
+										<input type="text" id="follower1" name="userFollowerNotes" ></input>
+										<input type="submit" value="submit"></input>
+								</form></li>
+							</ul>
+							<script type="text/javascript">
+								$("#notes-visitors").submit(function(event) {
+									var userInput = $('#visitor1').val();
+									console.log(userInput);
+									$("#user-input-notes-visitors").html("<p>"+userInput+"</p>");
+									$("#notes-visitors").remove();
+									event.preventDefault();
+								});
+								$("#notes-followers").submit(function(event) {
+									var userInput = $('#follower1').val();
+									console.log(userInput);
+									$("#user-input-notes-followers").html("<p>"+userInput+"</p>");
+									$("#notes-followers").remove();
+									event.preventDefault();
+								});
+							</script>
+						</div>
+						<div class="userJourney">
+							<h4>Notes</h4>
+							<div>
+                <form id="notes-form1">
+                	<input type="text" id="comment1" name="userJourneyNotes" ></input>
+                  <input type="submit" value="submit"></input>
+								</form>
+								<div id="user-input-notes1">
+								</div>
+								<form id="notes-form2">
+									<input type="text" id="comment2" name="userJourneyNotes" ></input>
+									<input type="submit" value="submit"></input>
+								</form>
+								<div id="user-input-notes2">
+								</div>
+								<form id="notes-form3">
+									<input type="text" id="comment3" name="userJourneyNotes" ></input>
+									<input type="submit" value="submit"></input>
+								</form>
+								<div id="user-input-notes3">
+								</div>
+								<form id="notes-form4">
+									<input type="text" id="comment4" name="userJourneyNotes" ></input>
+									<input type="submit" value="submit"></input>
+								</form>
+								<div id="user-input-notes4">
+								</div>
+								<script type="text/javascript">
+									$("#notes-form1").submit(function(event) {
+										var userInput = $('#comment1').val();
+										console.log(userInput);
+										$("#user-input-notes1").html("<p>"+userInput+"</p>");
+										$("#notes-form1").remove();
+										event.preventDefault();
+									});
+									$("#notes-form2").submit(function(event) {
+										var userInput = $('#comment2').val();
+										console.log(userInput);
+										$("#user-input-notes2").html("<p>"+userInput+"</p>");
+										$("#notes-form2").remove();
+										event.preventDefault();
+									});
+									$("#notes-form3").submit(function(event) {
+										var userInput = $('#comment3').val();
+										console.log(userInput);
+										$("#user-input-notes3").html("<p>"+userInput+"</p>");
+										$("#notes-form3").remove();
+										event.preventDefault();
+									});
+									$("#notes-form4").submit(function(event) {
+										var userInput = $('#comment4').val();
+										console.log(userInput);
+										$("#user-input-notes4").html("<p>"+userInput+"</p>");
+										$("#notes-form4").remove();
+										event.preventDefault();
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+					<div class="commentary">
+						<h3>Performance</h3>
+						<h4>Awareness and Engagement</h4>
+							<form id="notes-form5">
+								<input type="text" id="comment5" name="AwarenessEngagement" ></input>
+								<input type="submit" value="submit"></input>
+							</form>
+							<div id="user-input-notes5"></div>
+							<script>
+							$("#notes-form5").submit(function(event) {
+								var userInput = $('#comment5').val();
+								console.log(userInput);
+								$("#user-input-notes5").html("<p>"+userInput+"</p>");
+								$("#notes-form5").remove();
+								event.preventDefault();
+								});
+							</script>
+						<h3>Specific Posts</h3>
+						<h4>Impressions</h4>
+							<p>The post with the most impressions is: <i>"{{organicImpressions}}"</i> with <strong>{{organicImpressionNo}}</strong> impressions.</p>
+						<h4>Clicks</h4>
+							<p>The post with the most clicks is: <i>"{{organicClicks}}"</i> with <strong>{{organicClicksNo}}</strong> clicks.</p>
+						<h4>CTR</h4>
+							<p>The post with the highest CTR is: <i>"{{organicCtr}}"</i> with <strong>{{organicCtrNo}}</strong>%.</p>
+						<h4>Shares</h4>
+							<p>The post with the most shares is: <i>"{{organicShares}}"</i> with <strong>{{organicSharesNo}}</strong> shares.</p>
+					</div>
+
+				</div>
+		</div>
+		<div class="slide">
+				<div class="title">{{title2}}</div>
+				<div class="graphContainer">
+					<div class="graph">
+						<img src="static/images/Region.png" alt="Bar Chart showing a breakdown of the number of followers broken down by region">
+					</div>
+					<div class="graph">
+						<img src="static/images/Staff Count.png" alt="Bar Chart showing a breakdown of the number of followers broken down by staff count">
+					</div>
+					<div class="graph">
+						<img src="static/images/Job Function.png" alt="Bar Chart showing a breakdown of the number of followers broken down by job function">
+					</div>
+					<div class="graph">
+						<img src="static/images/Seniority.png" alt="Bar Chart showing a breakdown of the number of followers broken down by Seniority">
+					</div>
+					<div class="graph">
+						<img src="static/images/Industry.png" alt="Bar Chart showing a breakdown of the number of followers broken down by industry">
+					</div>
+					<div class="graph">
+						<img src="static/images/Country.png" alt="Bar Chart showing a breakdown of the number of followers broken down by country">
+					</div>
+				</div>
+				<div class="graphCommentary">
+					<form id="graphCommentaryForm">
+					<input type="text" id="graphComment" name="userJourneyNotes" ></input>
+					<input type="submit" value="submit"></input>
+				</form>
+				<div id="graphComment-output">
+				</div>
+				<script type="text/javascript">
+					$("#graphCommentaryForm").submit(function(event) {
+						var userInput = $('#graphComment').val();
+						console.log(userInput);
+						$("#graphComment-output").html("<p>"+userInput+"</p>");
+						$("#graphCommentaryForm").remove();
+						event.preventDefault();
+					});
+				</script>
+			</div>
+		</div>
+		<div class="slide">
+		  <div class="title">{{title2}}</div>
+		  <div class="upload-div">
+		  <!-- File upload form -->
+		  <form id="uploadForm" method="POST" action="" enctype="multipart/form-data">
+		      <label>Choose Images</label>
+		      <input type="file" name="images[]" id="fileInput" multiple>
+		      <input type="submit" name="submit" value="UPLOAD"/>
+		  </form>
+
+		  <!-- Display upload status -->
+		  <div id="uploadStatus"></div>
+		  </div>
+
+		  <!-- Gallery view of uploaded images -->
+		  <div id="gallery1" class="centered"></div>
+
+		</div>
+		<div class="slide">
+		  <div class="title">{{title3}}</div>
+
+		  <div class="upload-div">
+		  <!-- File upload form -->
+		  <form id="uploadForm2" enctype="multipart/form-data">
+		      <label>Choose Images</label>
+		      <input type="file" name="images[]" id="fileInput2" multiple>
+		      <input type="submit" name="submit" value="UPLOAD"/>
+		  </form>
+
+		  <!-- Display upload status -->
+		  <div id="uploadStatus"></div>
+		  </div>
+
+		  <!-- Gallery view of uploaded images -->
+		  <div id="gallery2" class="centered"></div>
+		</div>
+		<div class="slide">
+		<!-- LinkedIn Sponsored Slide -->
+
+			<div class="title">{{title4}}</div>
+			<div class="top-table-row">
+				<div class="top-table-cell header"><p>Date</p></div>
+				<div class="top-table-cell header"><p>Spend</p></div>
+				<div class="top-table-cell header"><p>Impressions</p></div>
+				<div class="top-table-cell header"><p>Clicks</p></div>
+				<div class="top-table-cell header"><p>CTR</p></div>
+				<div class="top-table-cell header"><p>CPC</p></div>
+				<div class="top-table-cell header"><p>Reach</p></div>
+				<div class="top-table-cell header"><p>Frequency</p></div>
+				<div class="top-table-cell header"><p>Follows</p></div>
+				<div class="top-table-cell header"><p>Clicks to LinkedIn Page</p></div>
+			</div>
+			<div class="top-table-row">
+				{% for x in range(10) %}
+					<div class="top-table-cell">{{sponsored1[x]}}</div>
+				{% endfor %}
+			</div>
+			<div class="top-table-row">
+				{% for x in range(10) %}
+					<div class="top-table-cell">{{sponsored2[x]}}</div>
+				{% endfor %}
+			</div>
+			<div class="container">
+				<div class="sidebar">
+
+					<form id="linkedin-sponsored-sidebar-form1">
+						<input type="text" name="" value="" id="linkedin-sponsored-sidebarInput1">
+						<input type="submit" value="submit">
+					</form>
+					<div id="linkedin-sponsored-sidebar-usernotes1">
+					</div>
+					<form id="linkedin-sponsored-sidebar-form2">
+						<input type="text" name="" value="" id="linkedin-sponsored-sidebarInput2">
+						<input type="submit" value="submit">
+					</form>
+					<div id="linkedin-sponsored-sidebar-usernotes2">
+					</div>
+					<form id="linkedin-sponsored-sidebar-form3">
+						<input type="text" name="" value="" id="linkedin-sponsored-sidebarInput3">
+						<input type="submit" value="submit">
+					</form>
+					<div id="linkedin-sponsored-sidebar-usernotes3">
+					</div>
+					<form id="linkedin-sponsored-sidebar-form4">
+						<input type="text" name="" value="" id="linkedin-sponsored-sidebarInput4">
+						<input type="submit" value="submit">
+					</form>
+					<div id="linkedin-sponsored-sidebar-usernotes4">
+					</div>
+					<script type="text/javascript">
+						$("#linkedin-sponsored-sidebar-form1").submit(function(event) {
+							var sidebarInput = jQuery('#linkedin-sponsored-sidebarInput1').val();
+							console.log(sidebarInput);
+							$("#linkedin-sponsored-sidebar-usernotes1").html("<p>"+sidebarInput+"</p>");
+							$("#linkedin-sponsored-sidebar-form1").remove();
+							event.preventDefault();
+						});
+						$("#linkedin-sponsored-sidebar-form2").submit(function(event) {
+							var sidebarInput = jQuery('#linkedin-sponsored-sidebarInput2').val();
+							console.log(sidebarInput);
+							$("#linkedin-sponsored-sidebar-usernotes2").html("<p>"+sidebarInput+"</p>");
+							$("#linkedin-sponsored-sidebar-form2").remove();
+							event.preventDefault();
+						});
+						$("#linkedin-sponsored-sidebar-form3").submit(function(event) {
+							var sidebarInput = jQuery('#linkedin-sponsored-sidebarInput3').val();
+							console.log(sidebarInput);
+							$("#linkedin-sponsored-sidebar-usernotes3").html("<p>"+sidebarInput+"</p>");
+							$("#linkedin-sponsored-sidebar-form3").remove();
+							event.preventDefault();
+						});
+						$("#linkedin-sponsored-sidebar-form4").submit(function(event) {
+							var sidebarInput = jQuery('#linkedin-sponsored-sidebarInput4').val();
+							console.log(sidebarInput);
+							$("#linkedin-sponsored-sidebar-usernotes4").html("<p>"+sidebarInput+"</p>");
+							$("#linkedin-sponsored-sidebar-form4").remove();
+							event.preventDefault();
+						});
+
+					</script>
+				</div>
+				<div class="commentary">
+					<div class="lower-table-row">
+						<div class="lower-table-cell header"><p>LinkedIn Sponsored Campaigns</p></div>
+						<div class="lower-table-cell header"><p>Spend</p></div>
+						<div class="lower-table-cell header"><p>Impressions</p></div>
+						<div class="lower-table-cell header"><p>Clicks</p></div>
+						<div class="lower-table-cell header"><p>CTR</p></div>
+						<div class="lower-table-cell header"><p>CPC</p></div>
+						<div class="lower-table-cell header"><p>Reach</p></div>
+						<div class="lower-table-cell header"><p>Frequency</p></div>
+					</div>
+					{% for campaign in campaigns %}
+					<div class="lower-table-row">
+						{% for x in range(8) %}
+							<div class="lower-table-cell">{{campaign[x]}}</div>
+						{% endfor %}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+		<!-- Google Sponsored Slide -->
+			<div class="title">{{title6}}</div>
+			<div class="top-table-row">
+				<div class="top-table-cell header"><p>Campaign</p></div>
+				<div class="top-table-cell header"><p>Cost</p></div>
+				<div class="top-table-cell header"><p>Impressions</p></div>
+				<div class="top-table-cell header"><p>Clicks</p></div>
+				<div class="top-table-cell header"><p>CTR</p></div>
+				<div class="top-table-cell header"><p>CPC</p></div>
+				<div class="top-table-cell header"><p>Conversions</p></div>
+				<div class="top-table-cell header"><p>Cost per Conversion</p></div>
+				<div class="top-table-cell header"><p>Status</p></div>
+			</div>
+			{% for y in googleCampaignToDate %}
+			<div class="top-table-row">
+					{% for x in y %}
+						<div class="top-table-cell">{{x}}</div>
+					{% endfor %}
+			</div>
+			{% endfor %}
+			<div class="container">
+				<div class="sidebar">
+
+					<form id="google-sponsored-sidebar-form1">
+					  <input type="text" name="" value="" id="google-sponsored-sidebarInput1">
+					  <input type="submit" value="submit">
+					</form>
+					<div id="google-sponsored-sidebar-usernotes1">
+					</div>
+					<form id="google-sponsored-sidebar-form2">
+					  <input type="text" name="" value="" id="google-sponsored-sidebarInput2">
+					  <input type="submit" value="submit">
+					</form>
+					<div id="google-sponsored-sidebar-usernotes2">
+					</div>
+					<form id="google-sponsored-sidebar-form3">
+					  <input type="text" name="" value="" id="google-sponsored-sidebarInput3">
+					  <input type="submit" value="submit">
+					</form>
+					<div id="google-sponsored-sidebar-usernotes3">
+					</div>
+					<form id="google-sponsored-sidebar-form4">
+					  <input type="text" name="" value="" id="google-sponsored-sidebarInput4">
+					  <input type="submit" value="submit">
+					</form>
+					<div id="google-sponsored-sidebar-usernotes4">
+					</div>
+					<script type="text/javascript">
+					  $("#google-sponsored-sidebar-form1").submit(function(event) {
+					    var sidebarInput = jQuery('#google-sponsored-sidebarInput1').val();
+					    console.log(sidebarInput);
+					    $("#google-sponsored-sidebar-usernotes1").html("<p>"+sidebarInput+"</p>");
+					    $("#google-sponsored-sidebar-form1").remove();
+					    event.preventDefault();
+					  });
+					  $("#google-sponsored-sidebar-form2").submit(function(event) {
+					    var sidebarInput = jQuery('#google-sponsored-sidebarInput2').val();
+					    console.log(sidebarInput);
+					    $("#google-sponsored-sidebar-usernotes2").html("<p>"+sidebarInput+"</p>");
+					    $("#google-sponsored-sidebar-form2").remove();
+					    event.preventDefault();
+					  });
+					  $("#google-sponsored-sidebar-form3").submit(function(event) {
+					    var sidebarInput = jQuery('#google-sponsored-sidebarInput3').val();
+					    console.log(sidebarInput);
+					    $("#google-sponsored-sidebar-usernotes3").html("<p>"+sidebarInput+"</p>");
+					    $("#google-sponsored-sidebar-form3").remove();
+					    event.preventDefault();
+					  });
+					  $("#google-sponsored-sidebar-form4").submit(function(event) {
+					    var sidebarInput = jQuery('#google-sponsored-sidebarInput4').val();
+					    console.log(sidebarInput);
+					    $("#google-sponsored-sidebar-usernotes4").html("<p>"+sidebarInput+"</p>");
+					    $("#google-sponsored-sidebar-form4").remove();
+					    event.preventDefault();
+					  });
+
+					</script>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- TODO ADD END SPLASHSCREEN SLIDE BEFORE DEMOGRAPHICS -->
+		<!-- Linkedin Demographics -->
+			{% for campaign in campaignDemos %}
+				{% if loop.index0%2 == 0 %}
+					<div class="slide">
+							<div class="title">{{title5}}</div>
+	            <div class="tablesx2">
+	            <div class="table-half">
+								<h3>{{campaign[1][0]}}</h3>
+	  						{% for x in campaign %}
+	                <div class="top-table-row">
+	                  {% for i in x %}
+											{% if loop.index0 == 0 %}
+
+											{% else %}
+		                    {% if x[loop.index0] == 'Company' or x[loop.index0] == 'Impressions' or x[loop.index0] == 'Percentage of Total Impressions' %}
+		                        <div class="top-table-cell header">{{i}}</div>
+		                    {% else %}
+		                        <div class="top-table-cell">{{i}}</div>
+		                    {% endif %}
+											{% endif %}
+
+	                  {% endfor %}
+
+	    						</div>
+	              {% endfor %}
+	            </div>
+	            <div class="table-half">
+								<h3>{{campaignDemos[loop.index0 + 1][1][0]}}</h3>
+	              {% for x in campaignDemos[loop.index0 + 1] %}
+	                <div class="top-table-row">
+	                  {% for i in x %}
+											{% if loop.index0 == 0 %}
+
+											{% else %}
+		                    {% if x[loop.index0] == 'Company' or x[loop.index0] == 'Impressions' or x[loop.index0] == 'Percentage of Total Impressions' %}
+		                        <div class="top-table-cell header">{{i}}</div>
+		                    {% else %}
+		                        <div class="top-table-cell">{{i}}</div>
+		                    {% endif %}
+											{% endif %}
+	                  {% endfor %}
+	                </div>
+	              {% endfor %}
+	            </div>
+	            </div>
+					</div>
+			 {% endif %}
+			{% endfor %}
+
+	</div>
+	<form id="html2pdfbtn">
+		<input type="submit" id="html2pdfbtn" name="html2pdfbtn" value="Export to PDF">
+	</form>
+
+	</body>
+</html>

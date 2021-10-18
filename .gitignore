@@ -1,0 +1,11 @@
+**/config/encrypted_files
+**/config/settings.py
+**/api-call/data/*.json
+**/api-call/lookup/*.json
+**/database/Dockerfile.secret
+
+**/test*
+**/encrypted_files
+
+getdb.sh
+backupdownload.sql
