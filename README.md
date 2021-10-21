@@ -1,5 +1,5 @@
 # Report Builder 3
-## A Python web interface for creating client facing reports for LinkedIn and GoogleAds Campaigns
+## A Flask-based web interface for creating client facing reports for LinkedIn and GoogleAds Campaigns
 
 ## Contents
 * [Introduction](#introduction)
